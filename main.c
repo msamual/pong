@@ -33,9 +33,10 @@ int main(int argc, char **argv, char **envp)
     int  ballY = 13, ballX = 41, ballDirectionY = 1, ballDirectionX = 1;
     int leftPlayerScore = 0, rightPlayerScore = 0;
     
-    keypad(initscr(), true);
+    initscr();
 	noecho();
     curs_set(0);
+    keypad(stdscr, 1);
     halfdelay(1);
     while (true)
     {
@@ -53,8 +54,8 @@ int main(int argc, char **argv, char **envp)
             rightrocket = 12,
             ballY = 13,
             ballX = 41;
-            ballDirectionY = 1,
-            ballDirectionX = 1;
+            ballDirectionY = random() % 2 ? 1 : -1;
+            ballDirectionX = random() % 2 ? 1 : -1;
         }
     }
     quitGame(0);
